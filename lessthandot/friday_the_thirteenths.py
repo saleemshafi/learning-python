@@ -23,11 +23,8 @@ def thirteenths_between(start, end):
         else:
             start = start.replace(month=month+1)
 
-def isFriday(date):
-    return date.strftime("%w") == "5"
-    
 def count_fridays(thirteenths):
-    return len(filter(isFriday, thirteenths))
+    return len(filter(lambda date: date.isoweekday() == 5, thirteenths))
 
 def count_friday_thirteenths(start, end):
     count = 0
